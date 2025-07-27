@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | deepliX</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+</head>
+<body>
+
+  <header class="navbar" data-aos="fade-down">
+    <img src="{{ url_for('static', filename='deeplix_logo.png') }}" alt="Logo" class="logo">
+    <div class="nav-center">
+      <h1 class="brand-name">deepliX</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section class="hero" data-aos="zoom-in"
+  background: linear-gradient(135deg, #1f1c2c, #928dab, #00c6ff);
+  color: white;
+  padding: 80px 20px 50px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+>
+  <h1 style="font-size: 48px; margin-bottom: 12px; letter-spacing: 1px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">
+    Contact Us
+  </h1>
+  <p style="font-size: 20px; opacity: 0.95; text-shadow: 0 1px 3px rgba(0,0,0,0.4);">
+    Send us a message — we're happy to connect!
+  </p>
+</section>
+
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash-message">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- AOS stylesheet -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- AOS stylesheet -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<section class="content" style="padding: 40px 20px; max-width: 700px; margin: auto;" data-aos="fade-up">
+  <form action="/submit" method="POST" class="contact-form" style="display: flex; flex-direction: column; gap: 0px;">
+    
+    <div class="form-group" data-aos="fade-right" style="display: flex; flex-direction: column; gap: 6px;">
+      <label for="name" style="color: white;">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Full Name" required 
+             style="width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 16px;">
+    </div>
+
+    <div class="form-group" data-aos="fade-left" style="display: flex; flex-direction: column; gap: 6px;">
+      <label for="email" style="color: white;">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required 
+             style="width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 16px;">
+    </div>
+
+    <div class="form-group" data-aos="fade-up" style="display: flex; flex-direction: column; gap: 6px;">
+      <label for="message" style="color: white;">Message</label>
+      <textarea id="message" name="message" rows="4" maxlength="2000" placeholder="Your message (max 2000 characters)" required 
+          style="width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 16px;">
+      </textarea>
+    </div>
+
+    <button type="submit" class="btn-submit" style="width: 200px; align-self: center; margin-top: 10px;" data-aos="zoom-in">
+      Send Message
+    </button>
+  </form>
+</section>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,
+    once: true
+  });
+</script>
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,
+    once: true
+  });
+</script>
+
+<footer style="text-align: center; padding: 20px; font-size: 14px; color: #aaa;">
+  © 2025 deepliX — All rights reserved.<br>
+  Designed & Developed by <strong style="color: #f1f1f1;">Deepak Valmani</strong>
+   <a href="/admin_messages">Admin</a>
+</footer>
+
+</body>
+</html>

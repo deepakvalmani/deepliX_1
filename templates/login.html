@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login</title>
+  <style>
+    body {
+      background: #0d1b2a;
+      color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    /* ---------------------- NAVBAR ---------------------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #444;
+      top: 0;
+      position: fixed;
+      width: 95%;
+      z-index: 1000;
+    }
+
+    .navbar img.logo {
+      height: 50px;
+      border-radius: 50px;
+    }
+
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .brand-name {
+      font-size: 3rem;
+      color: #00e0ff;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #00acee;
+    }
+
+    /* ---------------------- LOGIN FORM ---------------------- */
+    form {
+      background: rgba(27, 38, 59, 0.9);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 174, 255, 0.15), 0 4px 10px rgba(0, 0, 0, 0.3);
+      width: 300px;
+      margin: 120px auto 0;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    form:hover {
+      transform: scale(1.02);
+    }
+
+    form h2 {
+      color: #00e0ff;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 2px;
+      margin: 12px 0;
+      border: none;
+      border-radius: 8px;
+      background: #324a67;
+      color: #f1f1f1;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      background: #415a77;
+      box-shadow: 0 0 0 2px #00acee;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 30%;
+      background: linear-gradient(145deg, #00acee, #0088cc);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(145deg, #00e0ff, #00acee);
+      box-shadow: 0 0 10px rgba(0, 174, 255, 0.4);
+    }
+
+    ul {
+      color: #ff6961;
+      list-style: none;
+      padding: 0;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: #00acee;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #00e0ff;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <img src="{{ url_for('static', filename='deeplix_logo.png') }}" alt="Logo" class="logo">
+    <div class="nav-center">
+      <h1 class="brand-name">deepliX</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>    
+
+  <form method="POST" action="/login">
+    <h2>Admin Login</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for msg in messages %}
+            <li>⚠️ {{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% if blocked %}
+  <p style="color: red;">You have been blocked for {{ remaining_time }} minute(s). Please try again later.</p>
+  {% else %}
+    <form method="POST">
+      <!-- your login form fields here -->
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+  {% endif %}
+
+    <input type="text" name="username" placeholder="Username" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>

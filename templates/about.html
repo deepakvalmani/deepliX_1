@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | deepliX</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+</head>
+<body>
+
+  <header class="navbar" data-aos="fade-down">
+    <img src="{{ url_for('static', filename='deeplix_logo.png') }}" alt="Logo" class="logo">
+    <div class="nav-center">
+      <h1 class="brand-name">deepliX</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section class="hero" data-aos="zoom-in">
+  <h1 class="section-title" data-aos="fade-right">About deepliX</h1>
+
+  <p data-aos="fade-left">
+    We turn <strong>data into insights</strong>, <strong>ideas into software</strong>, and <strong>vision into reality</strong>.
+  </p>
+
+  <p data-aos="fade-left">
+    At deepliX, we combine deep technical expertise with a problem-solving mindset  
+    to help businesses grow through smart, scalable solutions.
+  </p>
+
+  <p class="founder-note" data-aos="fade-left">
+    <em>Founded in 2025 by <strong>Deepak Valmani</strong> — a tech enthusiast driven by a passion for data, automation, and meaningful digital innovation.</em>
+  </p>
+</section>
+
+<section class="hero">
+  <h2 class="section-title" data-aos="fade-right">Who We Are</h2>
+
+  <p data-aos="fade-left">
+    deepliX is a forward-thinking, remote-first tech agency delivering high-impact solutions in  
+    <strong>data science</strong>, <strong>automation</strong>, <strong>data analytics</strong>, and <strong>web development</strong>.
+  </p>
+
+  <p data-aos="fade-left">
+    As a lean and agile startup, we are passionate about solving complex challenges  
+    and creating value through intelligent, scalable technology.
+  </p>
+
+  <p data-aos="fade-left">
+    We partner with businesses globally to build smart systems, optimize operations,  
+    and transform data into strategic advantage.
+  </p>
+
+  <p data-aos="fade-left">
+    At deepliX, <strong>innovation</strong> and <strong>reliability</strong> shape every solution we build.
+  </p>
+</section>
+
+<section class="hero">
+  <h2 class="section-title" data-aos="fade-left">Our Mission & Vision</h2>
+
+  <p data-aos="fade-right">
+    Our mission is to simplify complexity using smart, data-driven technology built with precision and purpose.
+  </p>
+
+  <p data-aos="fade-right">
+    We envision a future where companies of all sizes can effortlessly leverage  
+    <strong>automation</strong>, <strong>analytics</strong>, and <strong>intelligent systems</strong>  
+    to drive faster, more confident decisions.
+  </p>
+</section>
+
+<section>
+  <div class="why-choose">
+    <div class="why-box" data-aos="flip-left">
+      <h3>⚡ Fast Delivery</h3>
+      <p>We follow lean principles and agile methods to deliver on time — always.</p>
+    </div>
+    <div class="why-box" data-aos="flip-right">
+      <h3>🌐 Global Reach</h3>
+      <p>Our remote team serves clients across the world, regardless of timezone.</p>
+    </div>
+    <div class="why-box" data-aos="flip-left">
+      <h3>🔐 Secure & Scalable</h3>
+      <p>We build secure, scalable solutions that grow with your business needs.</p>
+    </div>
+    <div class="why-box" data-aos="flip-right">
+      <h3>💡 Custom Solutions</h3>
+      <p>Every client is unique — so is every solution we provide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AOS Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+<footer style="text-align: center; padding: 20px; font-size: 14px; color: #aaa;">
+  © 2025 deepliX — All rights reserved.<br>
+  Designed & Developed by <strong style="color: #f1f1f1;">Deepak Valmani</strong>
+  <a href="/admin_messages">Admin</a>
+</footer>
+
+</body>
+</html>
