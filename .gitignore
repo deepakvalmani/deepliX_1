@@ -1,0 +1,15 @@
+.env
+__pycache__/
+*.pyc
+instance/
+*.db
+*.sqlite3
+*.log
+*.pid
+__pycache__/
+*.pyc
+instance/
+.env
+credentials.env
+.DS_Store
+venv/
