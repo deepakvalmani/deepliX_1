@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <title>Admin - Submitted Messages</title>
-  
+
   <style>
     html {
       scroll-behavior: smooth;
@@ -24,9 +25,17 @@
     }
 
     @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .navbar {
@@ -93,7 +102,8 @@
       margin-top: 20px;
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #2c3e50;
       padding: 12px;
       text-align: left;
@@ -106,7 +116,7 @@
     }
 
     tr:nth-child(even) {
-      background-color: rgba(255,255,255,0.05);
+      background-color: rgba(255, 255, 255, 0.05);
     }
 
     .scroll-message {
@@ -150,7 +160,9 @@
         font-size: 2rem;
       }
 
-      table, th, td {
+      table,
+      th,
+      td {
         font-size: 14px;
       }
     }
@@ -198,26 +210,28 @@
   </div>
 
   {% if messages %}
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Message</th>
-        <th>Timestamp</th>
-      </tr>
-      {% for msg in messages %}
-      <tr>
-        <td>{{ msg.id }}</td>
-        <td>{{ msg.name }}</td>
-        <td>{{ msg.email }}</td>
-        <td><div class="scroll-message">{{ msg.message }}</div></td>
-        <td>{{ msg.created_at }}</td>
-      </tr>
-      {% endfor %}
-    </table>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Timestamp</th>
+    </tr>
+    {% for msg in messages %}
+    <tr>
+      <td>{{ msg.id }}</td>
+      <td>{{ msg.name }}</td>
+      <td>{{ msg.email }}</td>
+      <td>
+        <div class="scroll-message">{{ msg.message }}</div>
+      </td>
+      <td>{{ msg.created_at }}</td>
+    </tr>
+    {% endfor %}
+  </table>
   {% else %}
-    <p style="text-align: center;">No messages found.</p>
+  <p style="text-align: center;">No messages found.</p>
   {% endif %}
 
   <footer>
@@ -225,4 +239,5 @@
     &copy; 2025 deepliX. All rights reserved.
   </footer>
 </body>
+
 </html>
