@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Login</title>
   <style>
@@ -12,7 +12,6 @@
       margin: 0;
     }
 
-    /* ---------------------- NAVBAR ---------------------- */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -65,7 +64,6 @@
       color: #00acee;
     }
 
-    /* ---------------------- LOGIN FORM ---------------------- */
     form {
       background: rgba(27, 38, 59, 0.9);
       padding: 40px 30px;
@@ -147,7 +145,6 @@
       color: #00e0ff;
       text-decoration: underline;
     }
-
   </style>
 </head>
 <body>
@@ -167,6 +164,15 @@
 
   <form method="POST" action="/login">
     <h2>Admin Login</h2>
+
+    {% if blocked %}
+      <p style="color: red;">You have been blocked for {{ remaining_time }} minute(s). Please try again later.</p>
+    {% else %}
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    {% endif %}
+
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul>
@@ -174,22 +180,42 @@
             <li>⚠️ {{ msg }}</li>
           {% endfor %}
         </ul>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '{{ messages[0] }}',
+        confirmButtonColor: '#00acee',
+        customClass: {
+          confirmButton: 'swal-custom-btn'
+        }
+      });
+    </script>
+
+    <style>
+      .swal2-popup {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      .swal-custom-btn {
+      padding: 10px 35px !important;
+      font-size: 1.1rem !important;
+      font-weight: bold !important;
+      border-radius: 8px !important;
+      margin: 0 auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      height: 45px !important; /* Ensures vertical centering */
+      box-sizing: border-box !important;
+    }
+    </style>
+
       {% endif %}
     {% endwith %}
-    {% if blocked %}
-  <p style="color: red;">You have been blocked for {{ remaining_time }} minute(s). Please try again later.</p>
-  {% else %}
-    <form method="POST">
-      <!-- your login form fields here -->
-      <input type="text" name="username" placeholder="Username">
-      <input type="password" name="password" placeholder="Password">
-      <button type="submit">Login</button>
-    </form>
-  {% endif %}
-
-    <input type="text" name="username" placeholder="Username" required />
-    <input type="password" name="password" placeholder="Password" required />
-    <button type="submit">Login</button>
   </form>
 </body>
 </html>
